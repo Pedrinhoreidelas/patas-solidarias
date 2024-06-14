@@ -1,0 +1,11 @@
+Use o console(cmd) para intalar os componente em cada pasta(npm install) e depois os execute(npm start)
+
+apos executar a aplicação rodara na porta "http://localhost:3000/" onde voce pode interagir com a aplicação.
+
+no arquivo acompanha ja um banco de dados com um usuario cadastrado e alguns animais cadastrado para demonstração
+de como a aplicação funciona. Sinta-se livre para criar um usuario e cadastrar mais animais.
+
+o usuario ja cadastrado é o email "admin@admin" e senha "admin", mas sinta-se livre para criar um novo.
+
+OBS que a data base para alteração e vuzualização direta dos dado precisa da instalação do DB Browse(sqlite)
+

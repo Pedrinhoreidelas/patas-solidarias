@@ -1,0 +1,62 @@
+.bgimg {
+    background-image: url('../imgs/th_1.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: calc(100vh - 87px);
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    /* Centraliza horizontalmente */
+    align-items: center;
+
+}
+
+.animal-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px;
+    background-color: black;
+    bottom: 25%;
+    opacity: 85%;
+    color: aliceblue;
+    border-radius: 25px;
+    position: absolute;
+    width: 400px;
+    height: 500px;
+}
+
+.animalname {
+    font-size: 50px;
+}
+
+.info1 {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background-color: dimgray;
+    border-radius: 5px;
+
+}
+
+.infop{
+    width: 33.3%;
+    padding-left: 10px;
+}
+
+.bt {
+    
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+
+    
+}
+
+.animaldisc{
+    width: 450px;
+    white-space: nowrap; /* Evita que o texto quebre para uma nova linha */
+    overflow: hidden; /* Esconde qualquer texto que ultrapasse a largura da div */
+    text-overflow: ellipsis;
+}
+
+

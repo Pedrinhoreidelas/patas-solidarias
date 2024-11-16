@@ -1,0 +1,1 @@
+teste realizado no arquivo de client\src\components\Auth.jsx

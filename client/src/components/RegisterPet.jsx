@@ -21,13 +21,23 @@ const RegisterPet = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
   const navigate = useNavigate(); 
+  const [isAuthorized, setIsAuthorized] = useState(true);
 
   useEffect(() => {
     if (location.state && location.state.animal) {
+      const currentUserId = localStorage.getItem('userId');
+      const animalOwnerId = location.state.animal.userId;
+      
+      if (currentUserId !== animalOwnerId.toString()) {
+        setIsAuthorized(false);
+        navigate('/profile');
+        return;
+      }
+      
       setAnimalData(location.state.animal);
-      setIsEditing(true); 
+      setIsEditing(true);
     }
-  }, [location.state]);
+  }, [location.state, navigate]);
 
   const handleChange = (e) => {
     setAnimalData({ ...animalData, [e.target.name]: e.target.value });
@@ -37,11 +47,15 @@ const RegisterPet = () => {
     e.preventDefault();
     try {
       const userId = localStorage.getItem('userId');
+      
+      if (isEditing && animalData.userId !== parseInt(userId)) {
+        alert('Você não tem permissão para editar este animal.');
+        return;
+      }
+
       if (isEditing) {
-        
         await axios.put(`http://localhost:8800/api/animals/${animalData.id}`, animalData);
       } else {
-        
         await axios.post(`http://localhost:8800/api/user/animals/${userId}`, { ...animalData, userId });
       }
       setShowAlert(true); 

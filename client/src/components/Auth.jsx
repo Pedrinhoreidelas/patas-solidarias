@@ -11,6 +11,11 @@ export const validatePassword = (senha) => {
   return senha.length >= 8;
 };
 
+export const checkAnimalOwnership = (animal, currentUser) => {
+  if (!animal || !currentUser) return false;
+  return animal.userId === currentUser.id;
+};
+
 const Auth = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [userData, setUserData] = useState({

@@ -1,6 +1,16 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+// Funções de validação exportadas para os testes
+export const validateEmail = (email) => {
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  return emailRegex.test(email);
+};
+
+export const validatePassword = (senha) => {
+  return senha.length >= 8;
+};
+
 const Auth = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [userData, setUserData] = useState({
@@ -15,17 +25,6 @@ const Auth = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUserData({ ...userData, [name]: value });
-  };
-
-  // Validação do email (qualquer domínio válido após @)
-  const validateEmail = (email) => {
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    return emailRegex.test(email);
-  };
-
-  // Validação da senha (mínimo de 8 caracteres)
-  const validatePassword = (senha) => {
-    return senha.length >= 8;
   };
 
   const handleSubmit = async (e) => {

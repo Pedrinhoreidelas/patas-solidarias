@@ -3,6 +3,18 @@ import axios from 'axios';
 import Navbar from './Navbar';
 import './Browse.css';
 
+// Extrair a lógica de filtro para uma função separada e exportável
+export const filterAnimals = (animals, searchTerm, filterType) => {
+  return animals.filter((animal) => {
+    const animalData = `${animal.nome} ${animal.tipo} ${animal.raca} ${animal.idade}`
+      .toLowerCase();
+    return (
+      animalData.includes(searchTerm.toLowerCase()) &&
+      (filterType === '' || animal.tipo.toLowerCase() === filterType.toLowerCase())
+    );
+  });
+};
+
 const Browse = () => {
   const [animals, setAnimals] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -21,15 +33,8 @@ const Browse = () => {
     fetchAnimals();
   }, []);
 
-  // Filtra os animais com base na barra de pesquisa e no filtro de tipo
-  const filteredAnimals = animals.filter((animal) => {
-    const animalData = `${animal.nome} ${animal.tipo} ${animal.raca} ${animal.idade}`
-      .toLowerCase();
-    return (
-      animalData.includes(searchTerm.toLowerCase()) &&
-      (filterType === '' || animal.tipo.toLowerCase() === filterType.toLowerCase())
-    );
-  });
+  // Atualizar o uso da função de filtro
+  const filteredAnimals = filterAnimals(animals, searchTerm, filterType);
   
   return (
     <div>

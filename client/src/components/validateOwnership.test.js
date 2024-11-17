@@ -1,4 +1,4 @@
-import { checkAnimalOwnership } from './auth';
+import { checkAnimalOwnership } from './Auth';
 
 describe('checkAnimalOwnership', () => {
   test('deve retornar true quando o usuário é dono do animal', () => {

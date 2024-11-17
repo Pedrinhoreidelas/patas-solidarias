@@ -1,4 +1,4 @@
-import { validateEmail, validatePassword } from './auth'; // Importando as funções exportadas
+import { validateEmail, validatePassword } from './Auth'; // Importando as funções exportadas
 // se tive dizendo que tem eero no from é fake news
 describe('Funções de validação', () => {
 

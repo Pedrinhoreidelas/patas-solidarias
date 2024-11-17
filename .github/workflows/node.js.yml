@@ -26,14 +26,14 @@ jobs:
       # Instalar dependências na subpasta 'client' (ajuste conforme necessário)
       - name: Install dependencies
         run: |
-          cd client # Navega até a subpasta onde está o projeto
-          npm install # Instala as dependências
+          cd client 
+          npm install 
 
       # Executar os testes na subpasta 'client' (ajuste conforme necessário)
       - name: Run tests
         run: |
-          cd client # Navega até a subpasta onde estão os testes
-          npm test # Executa os testes
+          cd client 
+          npm test 
 
       # Publicar resultados no GitHub (opcional)
       - name: Upload test results

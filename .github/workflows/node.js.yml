@@ -29,8 +29,13 @@ jobs:
           cd client 
           npm install 
 
+      - name: Fix permissions on Jest executable
+        run: |
+            cd client
+            sudo chmod -R 755 node_modules/.bin
+
       # Executar os testes na subpasta 'client' (ajuste conforme necessário)
       - name: Run tests
         run: |
           cd client 
-          npx test
+          npm test

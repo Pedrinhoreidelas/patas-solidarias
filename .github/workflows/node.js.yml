@@ -33,4 +33,4 @@ jobs:
       - name: Run tests
         run: |
           cd client 
-          sudo npm test 
+          npx test

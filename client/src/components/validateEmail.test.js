@@ -1,5 +1,5 @@
 // validateEmail.test.js
-import { validateEmail } from './auth'; // Importando as funções exportadas
+import { validateEmail } from './Auth'; // Importando as funções exportadas
 // se tive dizendo que tem eero no from é fake news
 
 describe('validateEmail', () => {

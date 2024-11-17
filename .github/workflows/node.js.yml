@@ -14,7 +14,7 @@ jobs:
 
     steps:
       # Checar o código do repositório
-      - name: patas-solidarias
+      - name: Checkout repository
         uses: actions/checkout@v3
 
       # Configurar Node.js
@@ -23,20 +23,22 @@ jobs:
         with:
           node-version: 20 # ou a versão do Node.js usada no projeto
 
-      # Instalar dependências
+      # Instalar dependências na subpasta 'client' (ajuste conforme necessário)
       - name: Install dependencies
-        run: npm install
+        run: |
+          cd client # Navega até a subpasta onde está o projeto
+          npm install # Instala as dependências
 
-      # Executar os testes
+      # Executar os testes na subpasta 'client' (ajuste conforme necessário)
       - name: Run tests
-        run: npm test
+        run: |
+          cd client # Navega até a subpasta onde estão os testes
+          npm test # Executa os testes
 
-      # Publicar resultados no GitHub
+      # Publicar resultados no GitHub (opcional)
       - name: Upload test results
         if: failure()
         uses: actions/upload-artifact@v3
         with:
           name: test-results
-          path: test-results/
-
-      
+          path: client/test-results/ # Ajuste se o diretório de resultados for diferente

@@ -42,12 +42,7 @@ jobs:
   Analysis:
     runs-on: ubuntu-latest
 
-    steps:
-     
-      - name: arruma a pasta
-        run: 
-          cd client
-      
+    steps: 
       - name: Analyze with SonarCloud
 
         # You can pin the exact commit or the version.
